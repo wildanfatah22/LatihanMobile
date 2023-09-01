@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Github User Apps</string>
+    <string name="hint_search">Search</string>
+    <string name="follower">Followers</string>
+    <string name="following">Following</string>
+    <string name="repository">Repository</string>
+    <string name="where_the_world_builds_software">Where the world builds software</string>
+</resources>
