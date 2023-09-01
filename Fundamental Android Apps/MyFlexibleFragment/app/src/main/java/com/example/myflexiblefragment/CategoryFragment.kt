@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.commit
 
 
 class CategoryFragment : Fragment(), View.OnClickListener {
@@ -32,13 +33,11 @@ class CategoryFragment : Fragment(), View.OnClickListener {
             val description = "Kategori ini akan berisi produk-produk lifestyle"
             detailCategoryFragment.arguments = bundle
             detailCategoryFragment.description = description
-            val fragmentManager = parentFragmentManager
-            fragmentManager?.beginTransaction()?.apply {
-                replace(R.id.frame_container, detailCategoryFragment, DetailCategoryFragment::class.java.simpleName)
+            mFragmentManager.commit {
                 addToBackStack(null)
-                commit()
-
+                replace(R.id.frame_container, mDetailCategoryFragment, DetailCategoryFragment::class.java.simpleName)
             }
+
         }
     }
 

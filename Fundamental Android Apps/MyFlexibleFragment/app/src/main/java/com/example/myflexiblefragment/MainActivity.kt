@@ -14,10 +14,9 @@ class MainActivity : AppCompatActivity() {
         val fragment = fragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
         if (fragment !is HomeFragment) {
             Log.d("MyFlexibleFragment", "Fragment Name :" + HomeFragment::class.java.simpleName)
-            fragmentManager
-                .beginTransaction()
-                .add(R.id.frame_container, homeFragment, HomeFragment::class.java.simpleName)
-                .commit()
+            mFragmentManager.commit {
+                add(R.id.frame_container, mHomeFragment, HomeFragment::class.java.simpleName)
+            }
         }
     }
 }
