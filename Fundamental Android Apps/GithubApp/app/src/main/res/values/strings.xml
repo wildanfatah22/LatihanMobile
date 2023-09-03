@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Github App</string>
+    <string name="hint_search">Search</string>
+    <string name="follower">Followers</string>
+    <string name="following">Following</string>
+    <string name="repository">Repository</string>
+    <string name="where_the_world_builds_software">Where the world builds software</string>
+    <string name="username">Username</string>
+    <string name="no_internet">"Tidak ada koneksi internet"</string>
+    <string name="profile_picture">Profile Picture</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logo">Logo</string>
+</resources>
