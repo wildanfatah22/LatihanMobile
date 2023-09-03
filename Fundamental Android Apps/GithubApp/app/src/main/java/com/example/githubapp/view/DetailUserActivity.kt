@@ -23,9 +23,9 @@ class DetailUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailUserBinding.inflate(layoutInflater)
+        binding.detailDataLayout.visibility = View.VISIBLE
         setContentView(binding.root)
         supportActionBar?.hide()
-        binding.detailDataLayout.visibility = View.GONE
         val user = intent.getParcelableExtra<UserResponse>(KEY_USER)
         if (user != null) {
             user.login?.let {
@@ -34,7 +34,7 @@ class DetailUserActivity : AppCompatActivity() {
             }
         }
         binding.backButton.setOnClickListener {
-            finish() // Menutup aktivitas saat tombol kembali ditekan
+            finish()
         }
     }
 
@@ -46,12 +46,14 @@ class DetailUserActivity : AppCompatActivity() {
                 val detailViewModel: DetailViewModel by viewModels {
                     DetailViewModelFactory(username)
                 }
+
                 detailViewModel.isLoading.observe(this, {
                     showProgressBar(it)
                 })
 
                 detailViewModel.detailUser.observe(this@DetailUserActivity, { userResponse ->
                     if (userResponse != null) {
+                        showProgressBar(false)
                         setData(userResponse)
                         setTabLayoutAdapter(userResponse)
                     }
@@ -61,6 +63,8 @@ class DetailUserActivity : AppCompatActivity() {
             }
         })
     }
+
+
 
     private fun setTabLayoutAdapter(user: UserResponse) {
         val sectionPagerAdapter = SectionPagerAdapter(this@DetailUserActivity)

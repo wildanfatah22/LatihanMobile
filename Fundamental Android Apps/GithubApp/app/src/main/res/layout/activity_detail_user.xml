@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".view.DetailUserActivity"
     android:background="@color/primary"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/detail_data_layout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/detail_data_layout">
+        >
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
@@ -77,12 +78,12 @@
                     tools:text="69" />
 
                 <TextView
-                    android:id="@+id/tv_detail_following"
+                    android:id="@+id/tv_detail_follower"
                     style="@style/tvNumberfollow"
                     tools:text="666" />
 
                 <TextView
-                    android:id="@+id/tv_detail_follower"
+                    android:id="@+id/tv_detail_following"
                     style="@style/tvNumberfollow"
                     tools:text="666" />
 
@@ -188,19 +189,14 @@
             android:background="@color/primary"
             app:layout_constraintTop_toBottomOf="@id/tv_detail_blog"
             app:tabTextColor="@color/white"
-            app:tabIndicatorColor="@color/white">
-
-
-        </com.google.android.material.tabs.TabLayout>
-
-
+            app:tabIndicatorColor="@color/white"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tabs"
-            android:background="@color/white" />
+            android:background="@color/primary" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

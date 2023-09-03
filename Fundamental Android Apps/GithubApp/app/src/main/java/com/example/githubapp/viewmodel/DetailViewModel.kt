@@ -39,7 +39,7 @@ class DetailViewModel(username: String) : ViewModel() {
                 _detailUser.postValue(result)
             } catch (e: Exception) {
                 _isLoading.value = false
-                _isNoInternet.value = false
+                _isNoInternet.value = true
                 _isDataFailed.value = true
                 Log.e(TAG, "onFailure: ${e.message.toString()}")
             }

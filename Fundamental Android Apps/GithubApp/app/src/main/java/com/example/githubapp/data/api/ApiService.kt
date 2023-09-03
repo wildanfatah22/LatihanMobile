@@ -12,22 +12,22 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("users")
-    @Headers("Authorization: token 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", "UserResponse-Agent: request")
+    @Headers("Authorization: token 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", "UserResponse-Agent: request")
     suspend fun getListUsersAsync(): ArrayList<UserResponse>
 
     @GET("users/{username}")
-    @Headers("Authorization: token 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", "UserResponse-Agent: request")
+    @Headers("Authorization: token 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", "UserResponse-Agent: request")
     suspend fun getDetailUserAsync(@Path("username") username: String): UserResponse
 
     @GET("search/users")
-    @Headers("Authorization: token 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", "UserResponse-Agent: request")
+    @Headers("Authorization: token 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", "UserResponse-Agent: request")
     fun getUserBySearch(@Query("q") username: String): Call<SearchResponse>
 
     @GET("users/{username}/followers")
-    @Headers("Authorization: token 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", "UserResponse-Agent: request")
+    @Headers("Authorization: token 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", "UserResponse-Agent: request")
     suspend fun getListFollowers(@Path("username") username: String): ArrayList<UserResponse>
 
     @GET("users/{username}/following")
-    @Headers("Authorization: token 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", "UserResponse-Agent: request")
+    @Headers("Authorization: token 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", "UserResponse-Agent: request")
     suspend fun getListFollowing(@Path("username") username: String): ArrayList<UserResponse>
 }
