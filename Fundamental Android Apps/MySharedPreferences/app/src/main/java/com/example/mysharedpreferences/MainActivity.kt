@@ -41,18 +41,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    /*
-    Menampilkan preference yang ada
-     */
     private fun showExistingPreference() {
         userModel = mUserPreference.getUser()
         populateView(userModel)
         checkForm(userModel)
     }
 
-    /*
-    Set tampilan menggunakan preferences
-    */
     private fun populateView(userModel: UserModel) {
         binding.tvName.text =
             if (userModel.name.toString().isEmpty()) "Tidak Ada" else userModel.name
