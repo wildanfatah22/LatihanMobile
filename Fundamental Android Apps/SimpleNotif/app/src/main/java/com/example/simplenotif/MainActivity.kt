@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -43,15 +44,37 @@ class MainActivity : AppCompatActivity() {
         binding.btnSendNotification.setOnClickListener {
             sendNotification(title, message)
         }
+
+        binding.btnOpenDetail.setOnClickListener{
+            val detailIntent = Intent(this@MainActivity, DetailActivity::class.java)
+            detailIntent.putExtra(DetailActivity.EXTRA_TITLE, title)
+            detailIntent.putExtra(DetailActivity.EXTRA_MESSAGE, message)
+            startActivity(detailIntent)
+        }
     }
 
     private fun sendNotification(title: String, message: String) {
+        // Pending intent
+       /**
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://dicoding.com"))
         val pendingIntent = PendingIntent.getActivity(
             this,
             0,
             intent,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0)
+        **/
+
+        val notifDetailIntent = Intent(this, DetailActivity::class.java)
+        notifDetailIntent.putExtra(DetailActivity.EXTRA_TITLE, title)
+        notifDetailIntent.putExtra(DetailActivity.EXTRA_MESSAGE, message)
+        val pendingIntent = TaskStackBuilder.create(this).run {
+            addNextIntentWithParentStack(notifDetailIntent)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                getPendingIntent(NOTIFICATION_ID, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            } else {
+                getPendingIntent(NOTIFICATION_ID, PendingIntent.FLAG_UPDATE_CURRENT)
+            }
+        }
 
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
@@ -61,6 +84,8 @@ class MainActivity : AppCompatActivity() {
             .setContentText(message)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setSubText(getString(R.string.notification_subtext))
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
