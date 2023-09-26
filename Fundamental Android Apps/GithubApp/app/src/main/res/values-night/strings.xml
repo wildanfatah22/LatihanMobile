@@ -2,4 +2,6 @@
 <resources>
     <string name="followers">Followers</string>
     <string name="logo">Logo</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="setting">Setting</string>
 </resources>

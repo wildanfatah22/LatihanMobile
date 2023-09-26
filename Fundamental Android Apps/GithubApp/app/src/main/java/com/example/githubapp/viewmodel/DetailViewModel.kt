@@ -1,18 +1,21 @@
 package com.example.githubapp.viewmodel
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.githubapp.data.api.ApiConfig
+import com.example.githubapp.data.local.FavoriteRepository
+import com.example.githubapp.data.local.entity.FavoriteEntity
 import com.example.githubapp.data.response.UserResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class DetailViewModel(username: String) : ViewModel() {
+class DetailViewModel(username: String, application: Application) : ViewModel() {
     private val _detailUser = MutableLiveData<UserResponse?>()
     val detailUser: LiveData<UserResponse?> = _detailUser
     private val _isLoading = MutableLiveData<Boolean>()
@@ -21,6 +24,9 @@ class DetailViewModel(username: String) : ViewModel() {
     val isNoInternet: LiveData<Boolean> = _isNoInternet
     private val _isDataFailed = MutableLiveData<Boolean>()
     val isDataFailed: LiveData<Boolean> = _isDataFailed
+
+    private val mFavoriteRepository: FavoriteRepository? = FavoriteRepository(application)
+
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.Main + viewModelJob)
@@ -53,4 +59,30 @@ class DetailViewModel(username: String) : ViewModel() {
         super.onCleared()
         viewModelJob.cancel()
     }
+
+
+    suspend fun checkUser(id: Int) = mFavoriteRepository?.checkUser(id)
+
+
+
+
+    fun deleteInt(id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            mFavoriteRepository?.delete(id)
+        }
+    }
+
+    //2
+    fun addToFavorite(username: String, id: Int, avatarUrl: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = FavoriteEntity(
+                id,
+                username,
+                avatarUrl
+            )
+            mFavoriteRepository?.addToFavorite(user)
+        }
+    }
+
+
 }

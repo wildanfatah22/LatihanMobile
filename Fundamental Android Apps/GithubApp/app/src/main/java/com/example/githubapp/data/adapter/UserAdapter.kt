@@ -27,6 +27,8 @@ class UserAdapter: RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
         notifyDataSetChanged()
     }
 
+
+
     class MyViewHolder(private var binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(userResponse: UserResponse) {

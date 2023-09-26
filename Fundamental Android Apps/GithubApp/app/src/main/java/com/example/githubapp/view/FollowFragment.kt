@@ -54,21 +54,21 @@ class FollowFragment : Fragment() {
         val followViewModel: FollowViewModel by viewModels {
             FollowViewModelFactory(username)
         }
-        followViewModel.isLoading.observe(viewLifecycleOwner, {
+        followViewModel.isLoading.observe(viewLifecycleOwner) {
             showProgressBar(it)
-        })
+        }
         if (index == 1) {
-            followViewModel.followers.observe(viewLifecycleOwner, { follResponse ->
+            followViewModel.followers.observe(viewLifecycleOwner) { follResponse ->
                 if (follResponse != null) {
                     setUserData(follResponse)
                 }
-            })
+            }
         } else {
-            followViewModel.following.observe(viewLifecycleOwner, { follResponse ->
+            followViewModel.following.observe(viewLifecycleOwner) { follResponse ->
                 if (follResponse != null) {
                     setUserData(follResponse)
                 }
-            })
+            }
 
         }
     }
@@ -84,6 +84,9 @@ class FollowFragment : Fragment() {
                     override fun onItemClicked(user: UserResponse) {
                         val intent = Intent(context, DetailUserActivity::class.java)
                         intent.putExtra(DetailUserActivity.KEY_USER, user)
+                        intent.putExtra(DetailUserActivity.KEY_USERNAME, user.login)
+                        intent.putExtra(DetailUserActivity.KEY_ID, user.id)
+                        intent.putExtra(DetailUserActivity.KEY_AVATAR, user.avatarUrl)
                         startActivity(intent)
                     }
                 })
