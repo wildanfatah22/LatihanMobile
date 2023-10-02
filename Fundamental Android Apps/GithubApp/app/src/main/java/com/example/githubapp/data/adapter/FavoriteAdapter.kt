@@ -35,6 +35,7 @@ class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount() = userFavorites.size
+
     class MyViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(favEntity: FavoriteEntity) {
