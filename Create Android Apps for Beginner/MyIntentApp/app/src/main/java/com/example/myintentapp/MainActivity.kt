@@ -94,8 +94,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 moveForBundleIntent.putExtra("myBundle", bundle)
                 startActivity(moveForBundleIntent)
             }
-
-
         }
     }
 }
