@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val btnDialPhone:Button = findViewById(R.id.btn_dial_number)
         btnDialPhone.setOnClickListener(this)
 
+        val btnMoveWithBundle:Button = findViewById(R.id.btn_move_activity_bundle)
+        btnMoveWithBundle.setOnClickListener(this)
+
         val btnMoveForResult:Button = findViewById(R.id.btn_move_for_result)
         btnMoveForResult.setOnClickListener(this)
         tvResult = findViewById(R.id.tv_result)
@@ -55,17 +58,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.btn_move_activity_data -> {
                 val moveWithDataIntent = Intent(this@MainActivity, MoveWithDataActivity::class.java)
-                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "DicodingAcademy Boy")
-                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 5)
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "Wildan")
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 22)
                 startActivity(moveWithDataIntent)
             }
 
             R.id.btn_move_activity_object -> {
                 val person = Person(
-                    "DicodingAcademy",
-                    5,
-                    "academy@dicoding.com",
-                    "Bandung"
+                    "Wildan Fatahillah Akbar",
+                    22,
+                    "awildanfatahillah@gmail.com",
+                    "Surabaya"
                 )
                 val moveWithObjectIntent = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
                 moveWithObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
@@ -73,7 +76,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_dial_number -> {
-                val phoneNumber = "081210841382"
+                val phoneNumber = "085829371957"
                 val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 startActivity(dialPhoneIntent)
             }
@@ -81,6 +84,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_move_for_result -> {
                 val moveForResultIntent = Intent(this@MainActivity, MoveForResultActivity::class.java)
                 resultLauncher.launch(moveForResultIntent)
+            }
+            R.id.btn_move_activity_bundle -> {
+                val moveForBundleIntent = Intent(this@MainActivity, MoveWithBundleActivity::class.java)
+                val bundle = Bundle()
+                bundle.putString("key1", "Nilai 1")
+                bundle.putInt("key2", 42)
+                bundle.putBoolean("key3", true)
+                moveForBundleIntent.putExtra("myBundle", bundle)
+                startActivity(moveForBundleIntent)
             }
 
 
