@@ -16,6 +16,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -50,5 +56,9 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.4.0-beta02'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.activity:activity-ktx:1.4.0'
+
+    implementation"androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+
+    implementation "androidx.paging:paging-runtime:3.2.1"
 
 }
