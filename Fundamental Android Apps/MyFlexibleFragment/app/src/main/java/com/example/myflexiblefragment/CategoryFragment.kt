@@ -33,9 +33,12 @@ class CategoryFragment : Fragment(), View.OnClickListener {
             val description = "Kategori ini akan berisi produk-produk lifestyle"
             detailCategoryFragment.arguments = bundle
             detailCategoryFragment.description = description
-            mFragmentManager.commit {
+
+            val fragmentManager = parentFragmentManager
+            fragmentManager.beginTransaction().apply{
+                replace(R.id.frame_container, detailCategoryFragment, DetailCategoryFragment::class.java.simpleName)
                 addToBackStack(null)
-                replace(R.id.frame_container, mDetailCategoryFragment, DetailCategoryFragment::class.java.simpleName)
+                commit()
             }
 
         }
