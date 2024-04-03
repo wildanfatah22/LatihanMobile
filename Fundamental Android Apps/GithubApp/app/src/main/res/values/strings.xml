@@ -3,15 +3,19 @@
     <string name="hint_search">Search</string>
     <string name="follower">Followers</string>
     <string name="following">Following</string>
-    <string name="repository">Repository</string>
-    <string name="where_the_world_builds_software">Where the world builds software</string>
+    <string name="repository" translatable="false">Repository</string>
+    <string name="where_the_world_builds_software" translatable="false">Where the world builds software</string>
     <string name="username">Username</string>
-    <string name="no_internet">"Tidak ada koneksi internet"</string>
-    <string name="profile_picture">Profile Picture</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="logo">Logo</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="logo" translatable="false">Logo</string>
     <string name="favorite">Favorite</string>
-    <string name="text_favorite">Tambahkan ke Favorit</string>
+    <string name="text_favorite">Add to Favorites</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="setting">Setting</string>
+    <string name="hapus_dari_favorit">Remove from Favorites</string>
+    <string name="tambahkan_ke_favorit">Add to Favorites</string>
+    <string name="pengguna_ditambahkan_ke_favorit">User added to favorites</string>
+    <string name="pengguna_dihapus_dari_favorit">User removed from favorites</string>
+    <string name="change_language">Change Language</string>
 </resources>

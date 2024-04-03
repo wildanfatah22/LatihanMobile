@@ -108,23 +108,23 @@ class DetailUserActivity : AppCompatActivity() {
 
     private fun addToFavorites(name: String, id: Int, avatarUrl: String) {
         DetailViewModel.addToFavorite(name, id, avatarUrl)
-        showToast("Pengguna ditambahkan ke favorit")
+        showToast(getString(R.string.pengguna_ditambahkan_ke_favorit))
     }
 
     private fun removeFromFavorites(id: Int) {
         DetailViewModel.deleteInt(id)
-        showToast("Pengguna dihapus dari favorit")
+        showToast(getString(R.string.pengguna_dihapus_dari_favorit))
     }
 
     private fun updateFavoriteButton(isFavorite: Boolean) {
         val btnFavorite = binding.btnFavorite
         btnFavorite.isChecked = isFavorite
         if (isFavorite) {
-            btnFavorite.text = "Hapus dari Favorit"
+            btnFavorite.text = getString(R.string.hapus_dari_favorit)
             btnFavorite.iconTint = ColorStateList.valueOf(Color.rgb(247, 106, 123))
             btnFavorite.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite_white)
         } else {
-            btnFavorite.text = "Tambahkan ke Favorit"
+            btnFavorite.text = getString(R.string.tambahkan_ke_favorit)
             btnFavorite.iconTint = ColorStateList.valueOf(Color.GRAY)
             btnFavorite.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite_border)
         }

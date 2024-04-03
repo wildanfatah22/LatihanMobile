@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Github App</string>
+    <string name="hint_search">Cari</string>
+    <string name="follower">Pengikut</string>
+    <string name="following">Diikuti</string>
+    <string name="username">Nama pengguna</string>
+    <string name="no_internet">Tidak ada koneksi internet</string>
+    <string name="profile_picture">Foto Profil</string>
+    <string name="favorite">Favorit</string>
+    <string name="text_favorite">Tambahkan ke Favorit</string>
+    <string name="dark_mode">Mode Malam</string>
+    <string name="setting">Pengaturan</string>
+    <string name="hapus_dari_favorit">Hapus dari Favorit</string>
+    <string name="tambahkan_ke_favorit">Tambahkan ke Favorit</string>
+    <string name="pengguna_ditambahkan_ke_favorit">Pengguna ditambahkan ke favorit</string>
+    <string name="pengguna_dihapus_dari_favorit">Pengguna dihapus dari favorit</string>
+    <string name="change_language">Ganti Bahasa</string>
+</resources>

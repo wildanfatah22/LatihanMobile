@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoviesApp</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_profile">Profile</string>
+    <string name="back">Back</string>
+    <string name="delete_favorite">Delete from Favorite</string>
+    <string name="add_favorite">Add to Favorite</string>
+    <string name="my_email">awildanfatahillah@gmail.com</string>
+    <string name="my_name">Wildan Fatahillah Akbar</string>
+    <string name="search_text">Search</string>
+    <string name="empty_data">You have not saved movie so far !</string>
+</resources>

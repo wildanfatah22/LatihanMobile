@@ -189,7 +189,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_icon_blog"
             app:icon="@drawable/ic_favorite_border"
-            android:text="@string/text_favorite"
+            android:text="@string/tambahkan_ke_favorit"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_regular"/>
 

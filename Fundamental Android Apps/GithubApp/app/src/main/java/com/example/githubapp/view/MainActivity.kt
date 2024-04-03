@@ -3,6 +3,7 @@ package com.example.githubapp.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -134,6 +135,11 @@ class MainActivity : AppCompatActivity(), Toolbar.OnMenuItemClickListener {
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         return when (item?.itemId) {
+            R.id.action_language -> {
+                val changeLanguage = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(changeLanguage)
+                return true
+            }
             R.id.action_favorite -> {
                 val favorite = Intent(this, FavoriteActivity::class.java)
                 startActivity(favorite)
